@@ -63,7 +63,7 @@ def gz_to_snr(gz):
                           1.61838916, 1.61985374, 1.62135878, 1.62268119, 1.62390423, 1.62513143, 
                           1.62632463, 1.6274027, 1.62842767, 1.62945532, 1.6303307, 1.63128026, 
                           1.63204102])
-    snr_interp = interp1d(gz_values, snr_values, kind='linear', bounds_error=False, 
+    snr_interp = interp1d(gz_values, snr_values, kind='cubic', bounds_error=False, 
                           fill_value=(snr_values[0], snr_values[-1]))
     return float(snr_interp(gz))
 
