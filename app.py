@@ -50,10 +50,8 @@ if st.button("Process"):
                 )
 
                 # SNR 표시
-                if fixed_mode == "None":
-                    st.write(f"Actual SNR ({snr_method}): {actual_snr:.2f} dB")
-                else:
-                    st.write(f"Target SNR: {desired_snr} dB")
+                st.write(f"Target SNR: {desired_snr} dB")
+                st.write(f"Actual(calculated) SNR ({snr_method}): {actual_snr:.2f} dB")                
 
                 # 주파수 스펙트럼 그래프 생성 및 표시
                 st.subheader("Frequency Power Spectrum")
