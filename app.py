@@ -20,7 +20,7 @@ signal_file = st.file_uploader("Upload signal audio file", type=["wav", "mp3"])
 
 # 사용자 입력
 desired_snr = st.selectbox("Desired SNR (dB)", options=[0, 5, 10, 15, 20, 25], index=0)
-fixed_mode = st.selectbox("Fixed Mode", ["None", "Noise Fixed", "Signal Fixed"])
+fixed_mode = st.selectbox("Fixed Mode", ["None", "Noise Fixed", "Signal Fixed"], index=2)
 snr_method = st.selectbox("SNR Estimation Method", ["Basic SNR", "WADA-SNR"])
 
 # 처리 버튼

@@ -83,19 +83,20 @@ def mix_audio(signal_array, noise_array, desired_snr, fixed_mode, snr_method='ba
         scaling_factor = np.sqrt(desired_power_signal / power_signal)
         scaled_signal = signal_array * scaling_factor
         mixed_audio = scaled_signal + noise_array
-        actual_snr = desired_snr
+        # actual_snr = desired_snr
     elif fixed_mode == "Signal Fixed":
         desired_power_noise = power_signal / 10**(desired_snr / 10)
         scaling_factor = np.sqrt(desired_power_noise / power_noise)
         scaled_noise = noise_array * scaling_factor
         mixed_audio = signal_array + scaled_noise
-        actual_snr = desired_snr
+        # actual_snr = desired_snr
     else:  # None 모드
         mixed_audio = signal_array + noise_array
-        if snr_method == 'wada':
-            actual_snr = calculate_wada_snr(mixed_audio)
-        else:
-            actual_snr = calculate_snr(signal_array, noise_array)
+
+    if snr_method == 'wada':
+        actual_snr = calculate_wada_snr(mixed_audio)
+    else:
+        actual_snr = calculate_snr(signal_array, noise_array)
 
     mixed_audio = np.clip(mixed_audio, -1, 1)  # 클리핑 처리
     return mixed_audio, actual_snr
