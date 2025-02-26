@@ -50,7 +50,7 @@ if st.button("Process"):
                 )
 
                 # SNR 표시
-                st.write(f"Target SNR: {desired_snr} dB")
+                st.write(f"Target(desired) SNR: {desired_snr} dB")
                 st.write(f"Actual(calculated) SNR ({snr_method}): {actual_snr:.2f} dB")                
 
                 # 주파수 스펙트럼 그래프 생성 및 표시
